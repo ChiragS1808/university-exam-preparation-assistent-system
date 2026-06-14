@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="./community.css">
+  <title>Community</title>
+</head>
+
+<body>
+  <!-- navbar starting -->
+  <nav class="navbar navbar-expand-lg " style="background-color: #EFFAFF;">
+    <div class="container-fluid">
+      <!-- logo -->
+      <a class="navbar-brand" href="/pages/home page/index.html">
+        <img src="./assets/logo.png" height="50" alt="exam mate logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/pages/home page/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/subject page/subject.html">Subjects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/community/community.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/contact us page/contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+
+
+
+
+
+
+
+            <div class="dropdown" id="userDropdown" style="display:none;">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="userNav">User</a>
+              <ul class="dropdown-menu">
+<li> <a class="dropdown-item text-danger" href="#" id="logoutBtn">Logout</a> </li>
+
+</ul>
+</div>
+<a class="nav-link" id="loginNav" href="/pages/signin page/login.html">Register/sign in</a>
+
+
+
+
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar ending -->
+
+  <!-- page heading -->
+  <div class="mt-2 text-center" style="background-color: #EFFAFF;">
+    <h1>Community</h1>
+    <hr>
+  </div>
+  <!-- add content button -->
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary fs-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
+      +
+    </button>
+  </div>
+  <!-- posts section  -->
+  <div class="accordion mt-4" id="communityPosts">
+  </div>
+  <!-- pop up section starting -->
+  <div class="modal fade" id="uploadModal">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Upload Content
+          </h5>
+
+          <button class="btn-close" data-bs-dismiss="modal">
+          </button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="d-flex gap-2 mb-3">
+
+            <button class="btn btn-outline-primary" id="textChip">
+
+              Text
+
+            </button>
+
+            <button class="btn btn-outline-primary" id="imageChip">
+
+              Image
+
+            </button>
+
+          </div>
+
+          <div id="textSection" style="display:none;">
+
+            <label class="form-label">
+              Write your doubt
+            </label>
+
+            <textarea class="form-control" id="doubtText">
+        </textarea>
+
+          </div>
+
+          <div id="imageSection" class="mt-3" style="display:none;">
+
+            <label class="form-label">
+
+              Select Image
+
+            </label>
+
+            <input type="file" class="form-control" id="imageInput">
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button class="btn btn-success" id="uploadBtn">
+
+            Upload
+
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- pop up section ending -->
+  <!-- footer starting -->
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="col-md-4 mb-0 text-body-secondary">© 2026 Examate</p> <a href="/"
+      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+      aria-label="Bootstrap"> <img src="./assets/logo.png" height="50" alt="exam mate logo"></a>
+    <ul class="nav col-md-4 justify-content-end">
+      <li class="nav-item"><a href="/pages/home page/index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="/pages/subject page/subject.html"
+          class="nav-link px-2 text-body-secondary">Subjects</a></li>
+      <li class="nav-item"><a href="/pages/community/community.html"
+          class="nav-link px-2 text-body-secondary">Community</a></li>
+      <li class="nav-item"><a href="/pages/contact us page/contact.html"
+          class="nav-link px-2 text-body-secondary">Contact Us</a></li>
+      <li class="nav-item"><a href="/pages/signin page/login.html" class="nav-link px-2 text-body-secondary">Sign In</a>
+      </li>
+  </footer>
+  <!-- footer ending -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+  <script src="/pages/nav.js"></script>
+</body>
+
+</html>
