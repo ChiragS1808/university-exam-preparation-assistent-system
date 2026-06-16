@@ -56,22 +56,79 @@ uploadBtn.addEventListener("click",function(){
     let imageFile =
     document.getElementById("imageInput").files[0];
 
-    if(
-        doubt === "" &&
-        !imageFile
-    ){
-        return;
-    }
+// Nothing entered
+if(doubt.trim() === "" && !imageFile)
+{
+    alert("Please enter content");
+    return;
+}
+
+// Image selected but no description
+if(doubt.trim() === "" && imageFile)
+{
+    alert("Add description in text");
+    return;
+}
 
     count++;
 
     let accordion =
     document.getElementById("communityPosts");
 
-    // TEXT POST
+// TEXT REQUIRED
 
-    if(doubt !== "")
-    {
+if(doubt.trim() === "")
+{
+    alert("Add description in text");
+    return;
+}
+
+// TEXT ONLY POST
+
+if(!imageFile)
+{
+    accordion.innerHTML += `
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#item${count}">
+
+                ${sessionStorage.getItem("userName")}
+
+            </button>
+
+        </h2>
+
+        <div
+        id="item${count}"
+        class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                ${doubt}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+}
+
+// TEXT + IMAGE POST
+
+else
+{
+    let reader = new FileReader();
+
+    reader.onload = function(){
+
         accordion.innerHTML += `
 
         <div class="accordion-item">
@@ -95,49 +152,11 @@ uploadBtn.addEventListener("click",function(){
 
                 <div class="accordion-body">
 
-                    ${doubt}
-
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-        if(imageFile)
-{
-    let reader = new FileReader();
-
-    reader.onload = function(){
-
-        count++;
-
-        accordion.innerHTML += `
-
-        <div class="accordion-item">
-
-            <h2 class="accordion-header">
-
-                <button
-                class="accordion-button collapsed"
-                data-bs-toggle="collapse"
-                data-bs-target="#item${count}">
-
-                    Uploaded Image
-
-                </button>
-
-            </h2>
-
-            <div
-            id="item${count}"
-            class="accordion-collapse collapse">
-
-                <div class="accordion-body">
+                    <p>${doubt}</p>
 
                     <img
                     src="${reader.result}"
-                    class="img-fluid rounded">
+                    class="img-fluid rounded mt-2">
 
                 </div>
 
@@ -150,7 +169,27 @@ uploadBtn.addEventListener("click",function(){
 
     reader.readAsDataURL(imageFile);
 }
-    }
+
+
+
+// Clear form
+document.getElementById("doubtText").value = "";
+document.getElementById("imageInput").value = "";
+
+// Reset UI
+textSection.style.display = "none";
+imageSection.style.display = "none";
+
+// Close modal
+let modal =
+bootstrap.Modal.getInstance(
+document.getElementById("uploadModal")
+);
+
+if(modal){
+    modal.hide();
+}
+
 
 });
 
